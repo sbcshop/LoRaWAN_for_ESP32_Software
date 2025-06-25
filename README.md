@@ -7,22 +7,34 @@ Powered by ESP32 S3 Wroom-1 microcontroller in conjunction with the RAK3172 modu
 
 This github offers getting started instructions to work with LoRaWAN for ESP32 development board.
 
-**_Features:_**
-- Powered by ESP32-S3 series of SoCs having Xtensa® dual-core 32-bit LX7 microprocessor
-- Having 2.4 GHz Wi-Fi (802.11 b/g/n) and Bluetooth® 5 (LE), Flash up to 16 MB, PSRAM up to 8
+### **_Features:_**
+- Powered by ESP32-S3 Wroom-1 microcontroller 
 - The board is equipped with a RAK3172 Module supporting LoRaWAN protocol for IoT-based applications 
 - Multiple wireless technologies on single board Wi-Fi, BLE, and LoRaWAN 
 - 1.14” TFT display for visual interactions with a resolution of 240x135 pixels
-- Display Appearance: RGB, Colors: 65K/262K
-- Having ST7789 display driver using SPI interface 
 - Type C interface for programming and powering board
 - Header Selection for standalone access to LPWAN Module for configuring and setup
 - Boot and reset buttons for ESP32 programming purposes
 - Onboard Battery connector and charge management for portable use 
 - Power and Charging status LED indicator
 - ESP32 GPIOs breakout for additional hardware interfacing 
-- Breadboard compatible board
-- Easy programming using Arduino IDE 
+- Breadboard compatible board and easy programming using Arduino IDE 
+
+### Specifications:
+- **Microcontroller**  : ESP32-S3 series of SoCs having Xtensa® dual-core 32-bit LX7 microprocessor
+- **LoRaWAN Module** : RAK3172
+- **Wireless Connectivity** : 2.4 GHz Wi-Fi (802.11 b/g/n), Bluetooth® 5 (LE), LoRa
+- **Memory** : Flash up to 16 MB, PSRAM up to 8 MB
+- **Working mode** : Support STA/AP/STA+AP 
+- **Supply Voltage:** 5V
+- **Operating Pin:** 3.3V ~ 5V
+- **Display Size**: 1.14"
+- **Display Resolution**: 135x240 pixel
+- **Display Driver**: ST7789
+- **Display Appearance**: RGB
+- **Display Colors**: 65K/262K
+- **Communication Interface:** SPI (UART), Type C
+- **Antenna port:** 1 port ,SMA
 
 **RAK3172 LoRaWAN Module Specifications:**
 - RAK3172 is based on STM32WLE5CCU6 chip
@@ -35,19 +47,133 @@ This github offers getting started instructions to work with LoRaWAN for ESP32 d
 
 ### 📑 Table of Contents
 1. [Hardware Overview]()
-2. [Getting Started with LoRaWAN Breakout]()
+    * [Pinout]()
+    * [Interfacing Details]()
+3. [Getting Started with LoRaWAN Breakout]()
+    * [Configure and Setup Development Environment]()
+    * [Installing Libraries]()
+    * [Testing Code]()
     * [P2P Mode](https://github.com/sbcshop/LoRaWAN_Breakout_Software?tab=readme-ov-file#p2p-mode) 
     * [LoRaWAN Mode](https://github.com/sbcshop/LoRaWAN_Breakout_Software?tab=readme-ov-file#lorawan-mode)
- 4. [Resources]()
- 5. [Related Products]()
+ 5. [Resources]()
+ 6. [Related Products]()
 
 ## Hardware Overview
+### Pinout
 <img src="" width="" height="">
 
+### Interfacing Details
+
+ - _**LoRaWAN RAK3172 Module with ESP32**_
+   
+   | ESP32 | RAK3172 Module | Description | 
+   |---|---|---|
+   | IO17/U1TXD | RX2 | Serial UART communication pin |
+   | IO18/U1RXD | TX2 | Serial UART communication pin |
+   | IO4        | Reset | RAK3172 Module Reset Pin  |
+   | IO6        | Boot  | RAK3172 Module Boot Pin  |
+   
+- _**Display Interfacing with ESP32**_
+
+   | ESP32 | Display | Function |
+   |---|---|---|
+   | IO12 | LCD_CLK | Clock pin of SPI interface for Display|
+   | IO11 | LCD_DIN | MOSI (Master OUT Slave IN) pin of SPI interface|
+   | IO10 | LCD_CS | Chip Select pin of SPI interface|
+   | IO13 | LCD_DC| Data/Command (MISO) pin of SPI interface|
+   | IO14 | LCD_RST | Display Reset pin |
+   | IO5  | BL | Backlight of display|
+
+- _**Breakout Pins**_
+  
+  Breakout 1
+  | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
+  |---|---|---|
+  |GND  | P     | Supply Ground |
+  |3V3  | P     | Positive Supply, 3.3V |
+  |5V   | P     | Positive Supply, 5V |
+  |GP1  | I/O/T | RTC_GPIO1, _**GPIO1**_, TOUCH1, ADC1_CH0  |
+  |GP2  | I/O/T | RTC_GPIO2, _**GPIO2**_, TOUCH2, ADC1_CH1  |
+  |GP43/TXD0 | I/O/T | _**U0TXD**_ , GPIO43, CLK_OUT1 |
+  |GP44/RXD0 | I/O/T | _**U0RXD**_ , GPIO44, CLK_OUT2  |
+  |GP42 | I/O/T | _**MTMS**_ , GPIO42  |
+  |GP41 | I/O/T | _**MTDI**_ , GPIO41, CLK_OUT1 |
+  |GP40 | I/O/T | _**MTDO**_ , GPIO40, CLK_OUT2 |
+  |GP39 | I/O/T | _**MTCK**_ , GPIO39, CLK_OUT3, SUBSPICS1 |
+  |GP38 | I/O/T | _**GPIO38**_ , FSPIWP, SUBSPIWP  |
+  |GP45 | I/O/T | _**GPIO45**_  |
+
+  Breakout 2
+  | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
+  |---|---|---|
+  |GND  | P     | Supply Ground |
+  |3V3  | P     | Positive Supply, 3.3V |
+  |5V   | P     | Positive Supply, 5V |
+  |EN   | I     | Enable pin, HIGH - Chip on, LOW - Chip off |
+  |GP15 | I/O/T | RTC_GPIO15, _**GPIO15**_ , U0RTS, ADC2_CH4, XTAL_32K_P  |
+  |GP16 | I/O/T | RTC_GPIO16, _**GPIO16**_ , U0CTS, ADC2_CH5, XTAL_32K_N |
+  |GP8  | I/O/T | RTC_GPIO8, _**GPIO8**_ , TOUCH8, ADC1_CH7, SUBSPICS1  |
+  |GP19 | I/O/T | RTC_GPIO19, GPIO19, U1RTS, ADC2_CH8, CLK_OUT2, _**USB_D-**_ |
+  |GP20 | I/O/T | RTC_GPIO20, GPIO20, U1CTS, ADC2_CH9, CLK_OUT1, _**USB_D+**_ |
+  |GP3  | I/O/T | RTC_GPIO3, **_GPIO3_**, TOUCH3, ADC1_CH2  |
+  |GP46 | I/O/T | GPIO46 |
+  |GP9  | I/O/T | RTC_GPIO9, _**GPIO9**_ , TOUCH9, ADC1_CH8, FSPIHD, SUBSPIHD |
+  |GP21 | I/O/T | RTC_GPIO21, _**GPIO21**_ |
+
+  *I-INPUT, O-OUTPUT, P-POWER & T-HIGH IMPEDENCE
+
 ## Getting Started with LoRaWAN for ESP32
+### 1. Configure and Setup Development Environment
+   - Download Arduino IDE from [official site](https://www.arduino.cc/en/software) and install into your system. We have use Arduino IDE 1.8.19
+   - Once installation done will add ESP32 S3 board support into IDE, for this first you need to add below link into preference:
+     
+     ```
+     https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+     ```
+     Select File > Preference, and add link as show in below image,
+
+     <img src= "https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/preference_board.gif" />
+      
+   - Now will install ESP32 based boards as shown in below image,
+
+     <img src= "https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/install_ESP32boards.gif" />
+   
+   - You have two Type-C options, use ESP32_USB side to program onboard ESP32 controller and set jumper setting on UHF-ESP. Here Native USB of ESP32 is used, so you will have to press hold BOOT button once and then connect Type C. 
+
+     <img src="https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/uhf_withESP32.png" width="381" height="286">   
+   
+   - When using USB native you will get COM PORT as shown in below image, and while uploading you can enable CDC Mode to visualize data on serial com port.
+     
+     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/Native_USB_device_com_port.jpg" width="410" height="93">
+     
+     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/Native_USB_Arduino_com.jpg" width="" height="">
+     
+        
+### 2. Installing Libraries
+   - When compiling sample codes there are some dependency on external libraries sometime which you can add as shown here.
+   - For example installing library, for display select Sketch > Include Library > Manage Libraries. We need ST7789 (1.10.3 version) and GFX library (1.11.7 version) for 1.14" TFT Display,
+
+     <img src= "https://github.com/sbcshop/EnkFi_7.5_Software/blob/main/images/Lib_install.png" />
+
+     <img src= "https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/st7789_lib.png" width="589" height="228" />
+     <img src= "https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/GFX_lib.png" width="588" height="217" />
+
+   - Similarly you can add more libraries if needed, make sure to install correct version. 
 
 
+### 3. Testing Code
+   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes]() in github which you can download and try. 
+   - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on board.
+     <img src="https://github.com/sbcshop/StackyFi_Software/blob/main/images/upload_code.gif">
+   - Checkout other more examples [here]() and build your own custom program codes using those references.
 
+## RAK3172 Module Standalone
+* You can access RAK3172 module directly using USB-TTL device. For this remove jumper and make connection as shown below,
+  
+  <img src="" width="" height="">
+
+* Now you can follow steps mentioned [here]() to use RAK3172 module standalone like breakout for changing configuration or [Firmware update]().
+  
 
 ## Resources
   * [Schematic](https://github.com/sbcshop/LoRaWAN_for_ESP32_Hardware/blob/main/Design%20Data/LoRaWAN%20for%20ESP32%20SCH.PDF)
