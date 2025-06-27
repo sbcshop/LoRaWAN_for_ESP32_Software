@@ -137,16 +137,14 @@ This github offers getting started instructions to work with LoRaWAN for ESP32 d
    - Now will install ESP32 based boards as shown in below image,
 
      <img src= "https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/install_ESP32boards.gif" />
-   
-   - You have two Type-C options, use ESP32_USB side to program onboard ESP32 controller and set jumper setting on UHF-ESP. Here Native USB of ESP32 is used, so you will have to press hold BOOT button once and then connect Type C. 
 
-     <img src="https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/uhf_withESP32.png" width="381" height="286">   
-   
-   - When using USB native you will get COM PORT as shown in below image, and while uploading you can enable CDC Mode to visualize data on serial com port.
-     
-     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/Native_USB_device_com_port.jpg" width="410" height="93">
-     
-     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/Native_USB_Arduino_com.jpg" width="" height="">
+   - Once done, keeping default settings select the ESP32S3 Dev Module with suitable COM PORT (may be different in your case) as shown below,
+
+     <img src="https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/select_esp32_with_comport.gif">
+
+     You can view assigned COM port through Device Manager,
+
+     <img src="https://github.com/sbcshop/2x2_Display_ESP32_Software/blob/main/images/UART_com_port.jpg" width="582" height="421">   
      
         
 ### 2. Installing Libraries
