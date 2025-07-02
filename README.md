@@ -45,19 +45,6 @@ This github offers getting started instructions to work with LoRaWAN for ESP32 d
 - Easy-to-use AT command set via UART interface
 - Long-range - around 15 km* with optimized antenna
 
-### 📑 Table of Contents
-1. [Hardware Overview]()
-    * [Pinout]()
-    * [Interfacing Details]()
-3. [Getting Started with LoRaWAN Breakout]()
-    * [Configure and Setup Development Environment]()
-    * [Installing Libraries]()
-    * [Testing Code]()
-    * [P2P Mode](https://github.com/sbcshop/LoRaWAN_Breakout_Software?tab=readme-ov-file#p2p-mode) 
-    * [LoRaWAN Mode](https://github.com/sbcshop/LoRaWAN_Breakout_Software?tab=readme-ov-file#lorawan-mode)
- 5. [Resources]()
- 6. [Related Products]()
-
 ## Hardware Overview
 ### Pinout
 <img src="" width="" height="">
