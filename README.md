@@ -1,7 +1,6 @@
 # LoRaWAN_for_ESP32_Software
-<!--
-<img src="https://github.com/sbcshop/LoRaWAN_Breakout_Software/blob/main/images/feature_banner.png" width="" height="">
--->
+
+<img src="https://github.com/sbcshop/LoRaWAN_for_ESP32_Software/blob/main/images/Feature_banner.png" width="" height="">
 
 Powered by ESP32 S3 Wroom-1 microcontroller in conjunction with the RAK3172 module, offers a convenient and versatile solution for accelerating your IoT development projects with LoRaWAN networks. You can easily switch onboard module into **LoRaWAN Mode** for connecting with server platforms like The Things Network (TTN), Chirpstack, Actility, etc. or **P2P Mode** to implement your own customized long-range LoRa network quickly. Module complies with Classes A, B, and C of the LoRaWAN 1.0.3 specifications.
 
@@ -47,7 +46,7 @@ This github offers getting started instructions to work with LoRaWAN for ESP32 d
 
 ## Hardware Overview
 ### Pinout
-<img src="" width="" height="">
+<img src="https://github.com/sbcshop/LoRaWAN_for_ESP32_Software/blob/main/images/Lorawan_esp32_pinout.png" width="" height="">
 
 ### Interfacing Details
 
@@ -175,6 +174,8 @@ This github offers getting started instructions to work with LoRaWAN for ESP32 d
   * [Hardware Files](https://github.com/sbcshop/LoRaWAN_for_ESP32_Hardware)
   * [RAK3172 AT Command Reference ](https://docs.rakwireless.com/product-categories/software-apis-and-libraries/rui3/at-command-manual/)
   * [Arduino IDE 1 overview](https://docs.arduino.cc/software/ide-v1/tutorials/Environment)
+  * [Getting Started with Arduino ESP32 ](https://docs.espressif.com/projects/arduino-esp32/en/latest/)
+  * [ESP32 S3 Wroom-1 Datasheet](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf)
     
 ## Related Products  
 
