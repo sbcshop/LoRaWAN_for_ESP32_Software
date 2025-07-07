@@ -147,17 +147,27 @@ This github offers getting started instructions to work with LoRaWAN for ESP32 d
 
 
 ### 3. Testing Code
-   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes]() in github which you can download and try. 
+   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes](https://github.com/sbcshop/LoRaWAN_for_ESP32_Software/tree/main/examples) in github which you can download and try. 
    - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on board.
      <img src="https://github.com/sbcshop/StackyFi_Software/blob/main/images/upload_code.gif">
-   - Checkout other more examples [here]() and build your own custom program codes using those references.
+   - Checkout other more examples [here](https://github.com/sbcshop/LoRaWAN_for_ESP32_Software/tree/main/examples) and build your own custom program codes using those references.
 
 ## RAK3172 Module Standalone
-* You can access RAK3172 module directly using USB-TTL device. For this remove jumper and make connection as shown below,
+* You can access RAK3172 module directly using [USB-TTL](https://shop.sb-components.co.uk/products/usb-ttl) device. For this remove jumper and make connection as shown below,
   
-  <img src="" width="" height="">
+  <img src="https://github.com/sbcshop/LoRaWAN_for_ESP32_Software/blob/main/images/jumper_sel.png" width="316" height="276">
 
-* Now you can follow steps mentioned [here]() to use RAK3172 module standalone like breakout for changing configuration or [Firmware update]().
+   | USB-TTL | RAK3172 Module | Description | 
+   |---|---|---|
+   | VCC  | 5V  | Supply Positive Pin (VCC - 5V logic) |
+   | RXD | L_TX | Serial UART communication pin |
+   | TXD | L_RX | Serial UART communication pin |
+   | GND | GND  | Supply GND pin |
+
+  > 💡 **Note:**
+  > Sometime RX and TX pins of USB-TTL swapped. In that case, connect RXD -> L_RX and TXD -> L_TXD. 
+
+* Now you can follow steps mentioned [here](https://github.com/sbcshop/LoRaWAN_Breakout_Software) to use RAK3172 module standalone like breakout for changing configuration or [Firmware update](https://github.com/sbcshop/LoRaWAN_Breakout_Software/blob/main/documents/Firmware%20Update%20Procedure%20with%20WisToolBox.pdf).
   
 
 ## Resources
